@@ -177,22 +177,22 @@ if (!onlyThird) {
 }
 var thirdCount = 0;
 for (var y = maxPoint.getY(); y >= minPoint.getY(); y--) {
-    var foundMishanguc = false;
+    var foundMishangucRoad = false;
     for (var x = minPoint.getX(); x <= maxPoint.getX(); x++) {
         for (var z = minPoint.getZ(); z <= maxPoint.getZ(); z++) {
             var pos = BlockVector3.at(x, y, z);
             if (selection.contains(pos)) {
                 var block = blocks.getBlock(pos);
                 var blockStr = block.toString();
-                if (blockStr.startsWith("mishanguc:")) {
-                    foundMishanguc = true;
+                if (blockStr.startsWith("mishanguc:road")) {
+                    foundMishangucRoad = true;
                     break;
                 }
             }
         }
-        if (foundMishanguc) break;
+        if (foundMishangucRoad) break;
     }
-    if (foundMishanguc) {
+    if (foundMishangucRoad) {
         for (var x = minPoint.getX(); x <= maxPoint.getX(); x++) {
             for (var z = minPoint.getZ(); z <= maxPoint.getZ(); z++) {
                 var pos = BlockVector3.at(x, y, z);
